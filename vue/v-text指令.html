@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-text指令</title>
+</head>
+<body>
+<div id="app">
+    <span v-text="message+info">测试</span>
+    <h2 v-text="info">测试</h2>
+    <h2>{{message+info}}测试</h2>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+<script>
+    var app=new Vue({
+        el:'#app',
+        data:{
+            message:'hello Vue',
+            info:'test'
+        }
+    })
+</script>
+</body>
+</html>

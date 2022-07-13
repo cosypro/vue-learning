@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-on指令</title>
+</head>
+<body>
+<div id="app">
+    <input type="button" value="v-on" v-on:click="doButton"></input>
+    <input type="button" value="v-on简写" @click="doButton"></input>
+    <input type="button" value="双击事件" @dblclick="doButton"></input>
+    <h2 @click="changeMessage">{{message}}</h2>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data:{
+          message:'预留信息'
+        },
+        methods: {
+            doButton: function () {
+                alert('已点击')
+            },
+            changeMessage:function(){
+                //console.log(this.message);
+                this.message+="新增信息！"
+            }
+        }
+    })
+</script>
+</body>
+</html>

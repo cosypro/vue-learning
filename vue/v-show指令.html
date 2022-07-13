@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-show指令</title>
+</head>
+<body>
+<div id="app">
+    <input type="button" value="切换是否显示" @click="changeShowType">
+    <input type="button" value="累加年龄" @click="ageAdd">
+    <img v-show="isShow" src="https://dss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1-66368c33f8.png" alt="">
+    <img v-show="age>=18" src="https://img6.bdstatic.com/img/image/pcindex/sunjunpchuazhoutu.JPG" alt="">
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+<script>
+    var app=new Vue({
+        el:'#app',
+        data:{
+            isShow:true,
+            age:17
+        },
+        methods:{
+            changeShowType:function(){
+                this.isShow = !this.isShow;
+            },
+            ageAdd:function(){
+                this.age++;
+            }
+        }
+    })
+</script>
+</body>
+</html>
