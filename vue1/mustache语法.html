@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>mustache语法</title>
+</head>
+<body>
+<div id="app">
+    <h2>{{message}}</h2>
+    <h2>{{message}} + 学习课程</h2>
+    <h2>{{firstname}}  {{lastName}}</h2>
+    <h2>{{firstname + '  middleName  ' + lastName}}</h2>
+    <h2>{{counter*12}}</h2>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+<script>
+    const app = new Vue({
+        el:'#app',
+        data:{
+            message:"my vue",
+            firstname:"james",
+            lastName:"smith",
+            counter:100
+        }
+    })
+</script>
+</body>
+</html>

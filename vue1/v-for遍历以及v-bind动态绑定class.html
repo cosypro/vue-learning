@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-for遍历以及v-bind动态绑定class</title>
+    <style>
+        .active {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <ul>
+        <li v-for="(item,index) in area"
+            :class="{active:currentIndex===index}"
+            @click="liClick(index)">{{index}}.{{item}}</li>
+    </ul>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            area: ["北京", "上海", "深圳", "广州"],
+            currentIndex: 0
+        },
+        methods: {
+            liClick(index) {
+                this.currentIndex = index;
+            }
+        }
+    })
+</script>
+</body>
+</html>
