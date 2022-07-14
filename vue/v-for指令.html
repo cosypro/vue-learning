@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-for指令</title>
+</head>
+<body>
+<div id="app">
+    <input type="button" value="add" @click="add">
+    <input type="button" value="remove" @click="remove">
+    <ul>
+        <li v-for="(item,index) in arr">
+            {{index+1}} learn Vue: {{item}}
+        </li>
+    </ul>
+    <h2 v-for="it in  food">
+        {{it.name}}
+    </h2>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+<script>
+    var app=new Vue({
+        el:'#app',
+        data:{
+            arr:["北京","上海","广州","深圳"],
+            food:[
+                {name:"apple"},
+                {name:"milk"}
+            ]
+        },
+        methods:{
+            add:function(){
+                this.food.push({name:"eggs"})
+            },
+            remove:function(){
+                this.food.shift()
+            }
+        }
+    })
+</script>
+</body>
+</html>

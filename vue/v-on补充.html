@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-on补充</title>
+</head>
+<body>
+<div id="app">
+    <input type="button" value="点击" @click="printLog(111,222)">
+    <label>
+        <input type="text" @keyup="sayHi">
+    </label>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+<script>
+    var app = new Vue({
+        el:'#app',
+        methods:{
+            printLog:function(p1,p2){
+                console.log("已打印")
+                console.log(p1)
+                console.log(p2)
+            },
+            sayHi:function(){
+                alert("input结束")
+            }
+        }
+    })
+</script>
+</body>
+</html>
