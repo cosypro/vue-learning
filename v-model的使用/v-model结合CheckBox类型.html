@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-model结合CheckBox类型</title>
+</head>
+<body>
+<div id="app">
+    <!--    1.checkBox单选框-->
+    <label for="agree">
+        <input type="checkbox" id="agree" v-model="isAgree">同意协议
+    </label>
+    <h2>你选择的是：{{isAgree}}</h2>
+    <button :disabled="!isAgree">下一步</button>
+    <br>
+    <!--    2.checkBox多选框-->
+    <input type="checkbox" value="篮球" v-model="hobbies">篮球
+    <input type="checkbox" value="足球" v-model="hobbies">足球
+    <input type="checkbox" value="乒乓球" v-model="hobbies">乒乓球
+    <input type="checkbox" value="羽毛球" v-model="hobbies">羽毛球
+    <h2>你的爱好是：{{hobbies}}</h2>
+
+    <label v-for="item in newHobbies" :for="item">
+        <input type="checkbox" :value="item" :id="item" v-model="hobbies">{{item}}
+    </label>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            message: 'my vue v-model',
+            isAgree:false,
+            hobbies:[],
+            newHobbies:['篮球','足球','乒乓球','羽毛球','排球','网球']
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-model修饰符的使用</title>
+</head>
+<body>
+<div id="app">
+<!--    1.lazy修饰符-->
+    <input type="text" v-model.lazy="message">
+    <h2>{{message}}</h2>
+<!--2.number修饰符-->
+    <input type="number" v-model.number="age">
+    <h2>{{age}}--{{typeof age}}</h2>
+<!--3.trim修饰符-->
+    <input type="text" v-model.trim="name">
+    <h2>你输入的名字是：{{name}}</h2>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            message: 'my vue v-model',
+            age:0,
+            name:''
+        }
+    })
+</script>
+</body>
+</html>
