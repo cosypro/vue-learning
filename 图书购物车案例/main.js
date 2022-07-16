@@ -1,52 +1,52 @@
 const app = new Vue({
-    el:'#app',
-    data:{
-        books:[
+    el: '#app',
+    data: {
+        books: [
             {
-                id:1,
-                name:"java",
-                date:'2020-1-1',
-                price:121.00,
-                count:1
-            },{
-                id:2,
-                name:"javaScript",
-                date:'2020-6-1',
-                price:101.00,
-                count:1
-            },{
-                id:3,
-                name:"mysql",
-                date:'2020-4-1',
-                price:151.00,
-                count:1
-            },{
-                id:4,
-                name:"C++",
-                date:'2020-2-1',
-                price:131.00,
-                count:1
+                id: 1,
+                name: "java",
+                date: '2020-1-1',
+                price: 121.00,
+                count: 1
+            }, {
+                id: 2,
+                name: "javaScript",
+                date: '2020-6-1',
+                price: 101.00,
+                count: 1
+            }, {
+                id: 3,
+                name: "mysql",
+                date: '2020-4-1',
+                price: 151.00,
+                count: 1
+            }, {
+                id: 4,
+                name: "C++",
+                date: '2020-2-1',
+                price: 131.00,
+                count: 1
             }
         ]
     },
-    filters:{
-        showPrice(price){
-            return '¥'+price.toFixed(2);
+    filters: {
+        showPrice(price) {
+            return '¥' + price.toFixed(2);
         }
     },
-    methods:{
-        add(index){
+    methods: {
+        add(index) {
             this.books[index].count++;
         },
-        sub(index){
+        sub(index) {
             this.books[index].count--;
         },
-        removeHandle(index){
-            this.books.splice(index,1);
+        removeHandle(index) {
+            this.books.splice(index, 1);
         }
     },
-    computed:{
-        totalPrice(){
+    computed: {
+        totalPrice() {
             //1.普通的for循环
             /*let totalPrice = 0;
             for(let i = 0;i<this.books.length;i++){
@@ -62,11 +62,16 @@ const app = new Vue({
             }
             return totalPrice;*/
             //3.(let i of this.books)
-            let totalPrice = 0;
+            /*let totalPrice = 0;
             for(let item of this.books){
                 totalPrice += item.price*item.count;
             }
-            return totalPrice;
+            return totalPrice;*/
+
+            //reduce
+            return this.books.reduce(function (preValue, book) {
+                return preValue + book.price * book.count
+            }, 0)
         }
     }
 })
