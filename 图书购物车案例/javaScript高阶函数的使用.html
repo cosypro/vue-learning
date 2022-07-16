@@ -56,8 +56,10 @@
         return n * 2;
     }).reduce(function (preValue, n) {
         return preValue + n;
-    },0)
-    console.log(total44,'total44')
+    }, 0)
+    console.log(total44, 'total44')
+    let total55 = nums.filter(n => n < 100).map(n => n * 2).reduce((pre, n) => pre + n);
+    console.log(total55, 'total55');
     //1.取出所有小于100的数字
     let newNums = [];
     for (let n of nums) {
